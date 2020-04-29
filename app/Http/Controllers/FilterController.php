@@ -13,8 +13,8 @@ class FilterController extends Controller
     	$categorys=Category::orderBy('sort_order','asc')->get();
     	$items=Items::where('model_name','=',$value)->paginate(20);
     	$itemsCategory=Items::where('category_id','=',$id)->get();
-
     	$filter=[];
+    	
     	foreach($itemsCategory as $item){
     		$filter[$item->brand][$item->model_name]=$item->id;
     	}
