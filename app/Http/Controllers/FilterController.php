@@ -14,7 +14,7 @@ class FilterController extends Controller
     	$items=Items::where('model_name','=',$value)->paginate(20);
     	$itemsCategory=Items::where('category_id','=',$id)->get();
     	$filter=[];
-    	
+
     	foreach($itemsCategory as $item){
     		$filter[$item->brand][$item->model_name]=$item->id;
     	}
